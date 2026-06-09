@@ -1,0 +1,17 @@
+/node_modules
+/.next
+/out
+/build
+.DS_Store
+*.pem
+.env*.local
+.vercel
+next-env.d.ts.bak
+
+# Config local da ferramenta (não versionar)
+/.claude
+
+# Modelo antigo do HUD (substituído pela versão Next.js) — mantido só no disco
+/index.html
+/app.js
+/style.css

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #05060a;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Evita seleção acidental de texto ao arrastar sobre o robô */
+main {
+  -webkit-tap-highlight-color: transparent;
+}
