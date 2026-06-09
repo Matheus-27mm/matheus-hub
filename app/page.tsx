@@ -55,7 +55,7 @@ export default function Home() {
       </div>
 
       {/* Nome no topo, dentro do card com borda de luz animada */}
-      <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-9 sm:pt-12">
+      <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-5 sm:pt-8">
         <NameCard />
       </header>
 

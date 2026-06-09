@@ -8,30 +8,30 @@ import { PROFILE } from "@/lib/socials";
  */
 export function NameCard() {
   return (
-    <div className="relative inline-flex">
+    <div className="relative inline-flex max-w-[92vw]">
       {/* Glow externo difuso (borda animada) */}
-      <div className="absolute -inset-[3px] overflow-hidden rounded-[22px] blur-[7px]">
+      <div className="absolute -inset-[3px] overflow-hidden rounded-[20px] blur-[6px]">
         <div className="absolute inset-0 grid place-items-center">
           <div className="animate-border-spin h-[600px] w-[600px] bg-[conic-gradient(#000,#ffffff_5%,#000_36%,#000_50%,#8a8a8a_60%,#000_88%)]" />
         </div>
       </div>
 
       {/* Linha de luz nítida (borda animada, sentido inverso) */}
-      <div className="absolute -inset-[1.5px] overflow-hidden rounded-[20px] blur-[1.5px]">
+      <div className="absolute -inset-[1.5px] overflow-hidden rounded-[18px] blur-[1.5px]">
         <div className="absolute inset-0 grid place-items-center">
           <div className="animate-border-spin-rev h-[600px] w-[600px] brightness-110 bg-[conic-gradient(#161616,#ffffff_5%,#161616_14%,#161616_50%,#c8c8c8_60%,#161616_64%)]" />
         </div>
       </div>
 
       {/* Conteúdo */}
-      <div className="relative rounded-[19px] bg-[#08080c]/90 px-9 py-5 text-center shadow-2xl shadow-black/60 backdrop-blur-md">
+      <div className="relative rounded-[17px] bg-[#08080c]/90 px-5 py-2.5 text-center shadow-2xl shadow-black/60 backdrop-blur-md sm:px-7 sm:py-3.5">
         <h1
-          className={`${display.className} bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl`}
+          className={`${display.className} bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-2xl`}
         >
           {PROFILE.name}
         </h1>
         <p
-          className={`${mono.className} mt-2.5 text-[10px] uppercase tracking-[0.34em] text-white/55 sm:text-xs`}
+          className={`${mono.className} mt-1.5 text-[8px] uppercase tracking-[0.2em] text-white/55 sm:mt-2 sm:text-[10px] sm:tracking-[0.3em]`}
         >
           {PROFILE.role}
         </p>
