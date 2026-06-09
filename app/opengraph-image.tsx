@@ -18,9 +18,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#05060a",
+          backgroundColor: "#050507",
           backgroundImage:
-            "radial-gradient(circle at 30% 30%, rgba(64,47,181,0.55), transparent 55%), radial-gradient(circle at 75% 75%, rgba(207,48,170,0.45), transparent 55%)",
+            "radial-gradient(circle at 30% 30%, rgba(120,120,140,0.20), transparent 55%), radial-gradient(circle at 75% 75%, rgba(60,60,70,0.30), transparent 55%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -42,7 +42,7 @@ export default function OpengraphImage() {
             fontSize: 34,
             letterSpacing: 8,
             textTransform: "uppercase",
-            color: "#c9b6ff",
+            color: "#b8b8c4",
           }}
         >
           {PROFILE.role}

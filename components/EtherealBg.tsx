@@ -17,14 +17,14 @@ const maskStyle = {
 
 export function EtherealBg({ className }: { className?: string }) {
   return (
-    <div className={`overflow-hidden bg-[#070510] ${className ?? ''}`} aria-hidden>
+    <div className={`overflow-hidden bg-[#050507] ${className ?? ''}`} aria-hidden>
       <div
-        className="ethereal-layer absolute inset-[-25%] opacity-70 blur-[1px] [animation:etherealDrift1_32s_ease-in-out_infinite]"
-        style={{ backgroundColor: '#5b3fc4', ...maskStyle }}
+        className="ethereal-layer absolute inset-[-25%] opacity-80 blur-[1px] [animation:etherealDrift1_32s_ease-in-out_infinite]"
+        style={{ backgroundColor: '#202028', ...maskStyle }}
       />
       <div
-        className="ethereal-layer absolute inset-[-25%] opacity-55 blur-[1px] [animation:etherealDrift2_40s_ease-in-out_infinite]"
-        style={{ backgroundColor: '#cf30aa', ...maskStyle }}
+        className="ethereal-layer absolute inset-[-25%] opacity-60 blur-[1px] [animation:etherealDrift2_40s_ease-in-out_infinite]"
+        style={{ backgroundColor: '#2d2d3a', ...maskStyle }}
       />
     </div>
   );

@@ -24,6 +24,19 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Spinner de carregamento da cena (fallback do SplineScene) */
+@keyframes loaderspin {
+  to { transform: rotate(360deg); }
+}
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  animation: loaderspin 0.8s linear infinite;
+}
+
 /* Fundo "ethereal" — textura de tecido que ondula devagar (GPU, leve) */
 @keyframes etherealDrift1 {
   0%, 100% { transform: translate(0, 0) scale(1.1) rotate(0deg); }

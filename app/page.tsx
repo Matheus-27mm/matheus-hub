@@ -1,19 +1,18 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { InteractiveRobotSpline } from '@/components/InteractiveRobotSpline';
+import { SplineScene } from '@/components/SplineScene';
 import { FloatingSocials } from '@/components/FloatingSocials';
 import { NameCard } from '@/components/NameCard';
 import { EtherealBg } from '@/components/EtherealBg';
 
-// Cena do robô interativo (segue o ponteiro). Troque pela sua cena do Spline
-// se quiser outro robô — é só colar a URL .splinecode aqui.
-const ROBOT_SCENE = 'https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode';
+// Cena do robô "Nexbot" (segue o ponteiro). Troque a URL .splinecode aqui
+// se quiser outro robô.
+const ROBOT_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode';
 
-// Nomes EXATOS de objetos a esconder p/ remover a "base quadrada" (o chão).
-// 'Plane' é o losango/piso (PlaneGeometry) — identificado direto na cena .splinecode.
-// O robô e o cubo são Cuerpo/Cabeza/Ojos/Ears/Cylinder/Sphere/Cube/Boolean.
-const HIDE_NAMES: string[] = ['Plane'];
+// Nomes EXATOS de objetos a esconder p/ deixar só o robô flutuando (sem chão).
+// 'floor'/'plane'/'grid' são o piso/grade — identificados direto na cena .splinecode.
+const HIDE_NAMES: string[] = ['floor', 'plane', 'grid'];
 
 export default function Home() {
   const robotRef = useRef<HTMLDivElement>(null);
@@ -48,7 +47,7 @@ export default function Home() {
 
       {/* Robô 3D em tela cheia, na frente do fundo (canvas transparente). */}
       <div ref={robotRef} className="absolute inset-0 z-[5]">
-        <InteractiveRobotSpline
+        <SplineScene
           scene={ROBOT_SCENE}
           className="h-full w-full"
           onLoad={handleSplineLoad}

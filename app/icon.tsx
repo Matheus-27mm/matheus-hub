@@ -15,11 +15,12 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #402fb5, #cf30aa)",
+          background: "linear-gradient(135deg, #2a2a2a, #000000)",
           color: "white",
           fontSize: 22,
           fontWeight: 700,
           borderRadius: 7,
+          border: "1px solid rgba(255,255,255,0.25)",
         }}
       >
         M
