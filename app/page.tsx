@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { InteractiveRobotSpline } from '@/components/InteractiveRobotSpline';
 import { FloatingSocials } from '@/components/FloatingSocials';
-import { PROFILE } from '@/lib/socials';
+import { NameCard } from '@/components/NameCard';
 
 // Cena do robô interativo (segue o ponteiro). Troque pela sua cena do Spline
 // se quiser outro robô — é só colar a URL .splinecode aqui.
@@ -23,18 +23,25 @@ export default function Home() {
         <InteractiveRobotSpline scene={ROBOT_SCENE} className="h-full w-full" />
       </div>
 
-      {/* Nome fixo no topo */}
-      <header className="pointer-events-none absolute inset-x-0 top-0 z-20 px-6 pt-10 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          {PROFILE.name}
-        </h1>
-        <p className="mt-1.5 text-sm text-white/55 sm:text-base">
-          {PROFILE.role}
-        </p>
+      {/* Nome no topo, dentro do card com borda de luz animada */}
+      <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-9 sm:pt-12">
+        <NameCard />
       </header>
 
       {/* Cards de redes sociais que passeiam pela tela; o robô acompanha */}
       <FloatingSocials robotRef={robotRef} />
+
+      {/* Máscara que cobre a marca d'água "Built with Spline" (canto inf. dir.).
+          Opaca só no cantinho do selo e com fade longo p/ não virar "caixa".
+          pointer-events-none: cliques passam direto pros cards. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 z-30 h-36 w-80"
+        style={{
+          background:
+            'radial-gradient(ellipse 100% 100% at 100% 100%, #05060a 0%, #05060a 60%, rgba(5,6,10,0.55) 80%, rgba(5,6,10,0) 100%)',
+        }}
+      />
     </main>
   );
 }

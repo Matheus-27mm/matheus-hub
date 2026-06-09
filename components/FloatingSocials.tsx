@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
 import { Github, Linkedin, Instagram } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import { SOCIALS } from '@/lib/socials';
 
 const TWO_PI = Math.PI * 2;
@@ -50,9 +51,10 @@ export function FloatingSocials({ robotRef }: { robotRef: RefObject<HTMLElement>
       const W = window.innerWidth;
       const H = window.innerHeight;
 
-      // Centro do "grupo" passeando lentamente pela tela.
-      const cx = W / 2 + Math.sin(e * 0.22) * (W * 0.20);
-      const cy = H * 0.56 + Math.sin(e * 0.17) * (H * 0.16);
+      // Centro do "grupo" passeando pela tela. É isso que o robô acompanha,
+      // então aqui mora a velocidade/amplitude do movimento dele.
+      const cx = W / 2 + Math.sin(e * 0.42) * (W * 0.27);
+      const cy = H * 0.55 + Math.sin(e * 0.33) * (H * 0.21);
 
       // Cada card orbita o centro do grupo (raio limitado p/ continuar clicável).
       const rx = Math.min(W * 0.14, 160);
@@ -64,8 +66,8 @@ export function FloatingSocials({ robotRef }: { robotRef: RefObject<HTMLElement>
       let count = 0;
 
       LINKS.forEach((l, i) => {
-        let x = cx + Math.cos(e * 0.5 + l.phase) * rx;
-        let y = cy + Math.sin(e * 0.62 + l.phase) * ry;
+        let x = cx + Math.cos(e * 0.85 + l.phase) * rx;
+        let y = cy + Math.sin(e * 1.0 + l.phase) * ry;
 
         // Mantém dentro da tela (e abaixo do nome, no topo).
         x = Math.max(margin, Math.min(W - margin, x));
@@ -117,6 +119,7 @@ export function FloatingSocials({ robotRef }: { robotRef: RefObject<HTMLElement>
           target="_blank"
           rel="noopener noreferrer"
           aria-label={name}
+          onClick={() => track('social_click', { network: name })}
           // Posição inicial perto do centro p/ evitar "flash" no canto.
           style={{ transform: 'translate(-50%, -50%) translate(50vw, 56vh)' }}
           className="group pointer-events-auto absolute left-0 top-0 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-white/[0.06] shadow-lg shadow-black/30 backdrop-blur-md transition-[border-color,background-color] duration-300 will-change-transform hover:border-white/40 hover:bg-white/[0.14] sm:h-16 sm:w-16"
