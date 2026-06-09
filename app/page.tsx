@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { InteractiveRobotSpline } from '@/components/InteractiveRobotSpline';
 import { FloatingSocials } from '@/components/FloatingSocials';
 import { NameCard } from '@/components/NameCard';
-import { EtherealShadow } from '@/components/EtherealShadow';
+import { AuroraBackground } from '@/components/AuroraBackground';
 
 // Cena do robô interativo (segue o ponteiro). Troque pela sua cena do Spline
 // se quiser outro robô — é só colar a URL .splinecode aqui.
@@ -49,22 +49,8 @@ export default function Home() {
         />
       </div>
 
-      {/* Fundo "ethereal shadows" nas nossas cores, por cima do canvas.
-          mix-blend-screen: vira uma névoa de luz roxa/magenta (não escurece). */}
-      <EtherealShadow
-        className="pointer-events-none absolute inset-0 z-[1] opacity-50 mix-blend-screen"
-        color="#5b3fc4"
-        scale={72}
-        speed={34}
-        noiseOpacity={0.14}
-      />
-      <EtherealShadow
-        className="pointer-events-none absolute inset-0 z-[1] opacity-30 mix-blend-screen"
-        color="#cf30aa"
-        scale={90}
-        speed={26}
-        noiseOpacity={0}
-      />
+      {/* Fundo "aurora" nas nossas cores, por cima do canvas (leve, GPU). */}
+      <AuroraBackground className="pointer-events-none absolute inset-0 z-[1]" />
 
       {/* Nome no topo, dentro do card com borda de luz animada */}
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-9 sm:pt-12">

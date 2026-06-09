@@ -23,3 +23,23 @@ body {
 main {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Fundo aurora — manchas de luz que derivam (GPU, leve) */
+@keyframes aurora1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(14%, 10%) scale(1.18); }
+}
+@keyframes aurora2 {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-12%, -8%) scale(0.92); }
+}
+@keyframes aurora3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10%, -14%) scale(1.22); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none !important;
+  }
+}
