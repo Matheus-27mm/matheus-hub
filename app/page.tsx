@@ -10,10 +10,10 @@ import { EtherealBg } from '@/components/EtherealBg';
 // se quiser outro robô — é só colar a URL .splinecode aqui.
 const ROBOT_SCENE = 'https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode';
 
-// Nomes EXATOS de objetos a esconder p/ remover a "base quadrada" (o chão),
-// mantendo o robô e o cubo. Vazio por enquanto: preencha com os nomes reais
-// (descubra abrindo a página com ?debug). Esconder por "chute" derrubava o robô.
-const HIDE_NAMES: string[] = [];
+// Nomes EXATOS de objetos a esconder p/ remover a "base quadrada" (o chão).
+// 'Plane' é o losango/piso (PlaneGeometry) — identificado direto na cena .splinecode.
+// O robô e o cubo são Cuerpo/Cabeza/Ojos/Ears/Cylinder/Sphere/Cube/Boolean.
+const HIDE_NAMES: string[] = ['Plane'];
 
 export default function Home() {
   const robotRef = useRef<HTMLDivElement>(null);
