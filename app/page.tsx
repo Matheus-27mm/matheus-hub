@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { InteractiveRobotSpline } from '@/components/InteractiveRobotSpline';
 import { FloatingSocials } from '@/components/FloatingSocials';
 import { NameCard } from '@/components/NameCard';
-import { AuroraBackground } from '@/components/AuroraBackground';
+import { EtherealBg } from '@/components/EtherealBg';
 
 // Cena do robô interativo (segue o ponteiro). Troque pela sua cena do Spline
 // se quiser outro robô — é só colar a URL .splinecode aqui.
@@ -22,6 +22,9 @@ export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSplineLoad = (spline: any) => {
     try {
+      // Deixa o canvas transparente => robô mantém a cor e o fundo aparece atrás.
+      spline.setBackgroundColor?.('transparent');
+
       // Esconde só os objetos listados explicitamente (nome exato).
       HIDE_NAMES.forEach((name) => {
         const target = spline.findObjectByName(name);
@@ -40,17 +43,17 @@ export default function Home() {
 
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-[#05060a] text-white">
-      {/* Robô 3D em tela cheia, no fundo */}
-      <div ref={robotRef} className="absolute inset-0 z-0">
+      {/* Fundo "ethereal" nas nossas cores, ATRÁS do robô (z-0). */}
+      <EtherealBg className="pointer-events-none absolute inset-0 z-0" />
+
+      {/* Robô 3D em tela cheia, na frente do fundo (canvas transparente). */}
+      <div ref={robotRef} className="absolute inset-0 z-[5]">
         <InteractiveRobotSpline
           scene={ROBOT_SCENE}
           className="h-full w-full"
           onLoad={handleSplineLoad}
         />
       </div>
-
-      {/* Fundo "aurora" nas nossas cores, por cima do canvas (leve, GPU). */}
-      <AuroraBackground className="pointer-events-none absolute inset-0 z-[1]" />
 
       {/* Nome no topo, dentro do card com borda de luz animada */}
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-9 sm:pt-12">

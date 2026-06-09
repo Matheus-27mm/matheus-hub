@@ -24,22 +24,18 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Fundo aurora — manchas de luz que derivam (GPU, leve) */
-@keyframes aurora1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(14%, 10%) scale(1.18); }
+/* Fundo "ethereal" — textura de tecido que ondula devagar (GPU, leve) */
+@keyframes etherealDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1.1) rotate(0deg); }
+  50% { transform: translate(4%, -3%) scale(1.28) rotate(4deg); }
 }
-@keyframes aurora2 {
-  0%, 100% { transform: translate(0, 0) scale(1.1); }
-  50% { transform: translate(-12%, -8%) scale(0.92); }
-}
-@keyframes aurora3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(10%, -14%) scale(1.22); }
+@keyframes etherealDrift2 {
+  0%, 100% { transform: scaleX(-1) translate(0, 0) scale(1.15) rotate(0deg); }
+  50% { transform: scaleX(-1) translate(-5%, 4%) scale(1.32) rotate(-5deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora-blob {
+  .ethereal-layer {
     animation: none !important;
   }
 }
