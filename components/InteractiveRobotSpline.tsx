@@ -6,9 +6,11 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 interface InteractiveRobotSplineProps {
   scene: string;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onLoad?: (spline: any) => void;
 }
 
-export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSplineProps) {
+export function InteractiveRobotSpline({ scene, className, onLoad }: InteractiveRobotSplineProps) {
   return (
     <Suspense
       fallback={
@@ -24,6 +26,7 @@ export function InteractiveRobotSpline({ scene, className }: InteractiveRobotSpl
       <Spline
         scene={scene}
         className={className}
+        onLoad={onLoad}
       />
     </Suspense>
   );

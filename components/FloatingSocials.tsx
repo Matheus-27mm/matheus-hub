@@ -133,6 +133,10 @@ export function FloatingSocials({ robotRef }: { robotRef: RefObject<HTMLElement>
             className="relative h-6 w-6 text-white/80 transition-colors duration-300 group-hover:text-white sm:h-7 sm:w-7"
             strokeWidth={1.75}
           />
+          {/* rótulo (aparece ao passar o mouse) */}
+          <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-black/75 px-2 py-0.5 text-[11px] font-medium text-white/90 opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+            {name}
+          </span>
         </a>
       ))}
     </div>
